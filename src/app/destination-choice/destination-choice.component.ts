@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-destination-choice',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DestinationChoiceComponent implements OnInit {
   destination:String = "";
   destList:String[] = ['Rambouillet','Plaisir','Mantes-la-Jolie','Dreux'];
+  hourOfDep:Time;
  
   constructor() { }
 
