@@ -9,7 +9,10 @@
   <h1>{{getDestination()}}</h1>
 </div>
 <hr>
+<!-- choose a time section, maybe in a different component later -->
 <div class="container text-center">
   <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourOfDep"><br>
-  {{hourOfDep}}
+  <!-- this will be edited out soo too -->
+  {{getHourOfDep()}}
 </div>
+<hr>

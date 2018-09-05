@@ -7,10 +7,9 @@ import { Time } from '@angular/common';
   styleUrls: ['./destination-choice.component.css']
 })
 export class DestinationChoiceComponent implements OnInit {
-  destination:String = "";
-  destList:String[] = ['Rambouillet','Plaisir','Mantes-la-Jolie','Dreux'];
-  hourOfDep:Time;
- 
+  destination: String = "";
+  destList: String[] = ['Rambouillet','Plaisir','Mantes-la-Jolie','Dreux'];
+  hourOfDep: Time ;
   constructor() { }
 
   ngOnInit() {
@@ -22,5 +21,9 @@ export class DestinationChoiceComponent implements OnInit {
   
   getDestination(){
     return this.destination;
+  }
+
+  getHourOfDep(){
+    return this.hourOfDep;
   }
 }
