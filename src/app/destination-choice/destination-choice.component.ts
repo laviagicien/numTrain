@@ -9,7 +9,11 @@ import { Time } from '@angular/common';
 export class DestinationChoiceComponent implements OnInit {
   destination: String = "";
   destList: String[] = ['Rambouillet','Plaisir','Mantes-la-Jolie','Dreux'];
-  hourOfDep: Time ;
+  hourOfDepTmp : String ="";
+  hourOfDep: Time = {
+    hours: 0,
+    minutes: 0,
+  } ;
   constructor() { }
 
   ngOnInit() {
@@ -23,7 +27,14 @@ export class DestinationChoiceComponent implements OnInit {
     return this.destination;
   }
 
+  setHourOfDep(){
+    let time = this.hourOfDepTmp.split(":", 2);
+    console.log(time);
+    this.hourOfDep.hours = Number(time[0]);
+    this.hourOfDep.minutes = Number(time[1]);
+  }
+
   getHourOfDep(){
-    return this.hourOfDep;
+    return this.hourOfDep.hours + ":" +this.hourOfDep.minutes;
   }
 }

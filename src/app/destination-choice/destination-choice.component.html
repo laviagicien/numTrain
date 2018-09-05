@@ -11,7 +11,7 @@
 <hr>
 <!-- choose a time section, maybe in a different component later -->
 <div class="container text-center">
-  <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourOfDep"><br>
+  <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourOfDepTmp" (change)="setHourOfDep()"><br>
   <!-- this will be edited out soo too -->
   {{getHourOfDep()}}
 </div>
