@@ -12,7 +12,9 @@
 </div>
 <hr>
 <div class="container">
-  <button class="btn btn-success btn-lg btn-block" (click)="changeVisible()">Valider</button>
+  <button class="btn btn-success btn-lg btn-block"
+          (click)="changeVisible()"
+          (click)="setNumTrain()">Valider</button>
 </div>
 <div class="container text-center">
   <h1 [ngStyle]="{visibility : getVisible()}" >Train N° {{getNumTrain()}}</h1>

@@ -7,6 +7,7 @@ import { Time } from '@angular/common';
   styleUrls: ['./destination-choice.component.css']
 })
 export class DestinationChoiceComponent implements OnInit {
+  numTrain: String ="";
   destination: String = "";
   destList: Array<Array<String>> = [
     ['Rambouillet', '4'],
@@ -50,7 +51,7 @@ export class DestinationChoiceComponent implements OnInit {
     return this.visible;
   }
 
-  getNumTrain(){
+  setNumTrain(){
     let periode = this.hourOfDep.hours < 12 ? "4" : "5";
     let terminus = this.destination ;
     let codeHour ;
@@ -84,7 +85,10 @@ export class DestinationChoiceComponent implements OnInit {
       }
     }
 
-    return "16" + periode + terminus + codeHour; 
+    this.numTrain = "16" + periode + terminus + codeHour;
+  }
 
+  getNumTrain(){
+    return this.numTrain;
   }
 }
