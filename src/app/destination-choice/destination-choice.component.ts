@@ -8,7 +8,11 @@ import { Time } from '@angular/common';
 })
 export class DestinationChoiceComponent implements OnInit {
   destination: String = "";
-  destList: String[] = ['Rambouillet','Plaisir-Grignon','Mantes-la-Jolie','Dreux'];
+  destList: Array<Array<String>> = [
+    ['Rambouillet', '4'],
+    ['Plaisir-Grignon', '5'],
+    ['Mantes-la-Jolie', '6'],
+    ['Dreux','8']];
   hourOfDepTmp : String ="";
   hourOfDep: Time = {
     hours: null,
@@ -48,23 +52,8 @@ export class DestinationChoiceComponent implements OnInit {
 
   getNumTrain(){
     let periode = this.hourOfDep.hours < 12 ? "4" : "5";
-    let terminus ;
+    let terminus = this.destination ;
     let codeHour ;
-
-    switch (this.destination){
-      case "Rambouillet":
-        terminus = "4";
-      break;
-      case "Plaisir-Grignon":
-        terminus = "5";
-      break;
-      case "Mantes-la-Jolie":
-        terminus = "6";
-      break;
-      case "Dreux":
-        terminus = "8";
-      break;
-    }
 
     if(periode == "4"){
       if (this.hourOfDep.minutes < 15){

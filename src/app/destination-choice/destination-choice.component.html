@@ -3,7 +3,7 @@
 <div class="container">
   <button *ngFor="let dest of destList"
           class="btn btn-primary btn-lg btn-block"
-          (click)="setDestination(dest)">{{dest}}</button>
+          (click)="setDestination(dest[1])">{{dest[0]}}</button>
 </div>
 <hr>
 <!-- choose a time section, maybe in a different component later -->
