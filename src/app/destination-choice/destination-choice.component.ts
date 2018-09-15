@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Time } from '@angular/common';
+import { Destination } from './destination.model';
 
 @Component({
   selector: 'app-destination-choice',
@@ -9,11 +10,11 @@ import { Time } from '@angular/common';
 export class DestinationChoiceComponent implements OnInit {
   numTrain: String ="";
   destination: String = "";
-  destList: Array<Array<String>> = [
-    ['Rambouillet', '4'],
-    ['Plaisir-Grignon', '5'],
-    ['Mantes-la-Jolie', '6'],
-    ['Dreux','8']];
+  destList: Array<Destination> = [
+    new Destination('Rambouillet', '4'),
+    new Destination('Plaisir-Grignon', ''),
+    new Destination('Mantes-la-Jolie', '6'),
+    new Destination('Dreux', '8')];
   hourOfDepTmp : String ="";
   hourOfDep: Time = {
     hours: null,
