@@ -1,14 +1,13 @@
-
 <!-- choose a destination section -->
 <div class="container">
   <button *ngFor="let dest of destList"
           class="btn btn-primary btn-lg btn-block"
-          (click)="setDestination(dest.id)">{{dest.terminus}}</button>
+          (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}</button>
 </div>
 <hr>
 <!-- choose a time section, maybe in a different component later -->
 <div class="container text-center">
-  <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourOfDepTmp" (change)="setHourOfDep()"><br>
+  <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourTmp" (change)="setHourOfDep()"><br>
 </div>
 <hr>
 <div class="container">

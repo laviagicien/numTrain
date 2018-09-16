@@ -1,12 +1,19 @@
 import { Time } from "@angular/common";
 
-export class train{
+export class Train{
     public destination: String;
+    public codeTerminus: String;
     public hour: Time;
     public numTrain: String;
 
     constructor(){
-
+        this.destination = "";
+        this.codeTerminus = "";
+        this.hour = {
+            hours : null,
+            minutes : null
+        };
+        this.numTrain = "";
     }
 
     setDestination(dest:String){
@@ -25,5 +32,13 @@ export class train{
     getHour(){
         return this.hour.hours + ":" + this.hour.minutes;
     }
-    
+
+    setCodeTerminus (terminus:String){
+        this.codeTerminus = terminus;
+    }
+
+    getCodeTerminus (){
+        return this.codeTerminus;
+    }
+
 }
