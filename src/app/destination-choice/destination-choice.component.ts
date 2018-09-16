@@ -13,7 +13,7 @@ export class DestinationChoiceComponent implements OnInit {
   trainDep :Train = new Train();
   destList: Array<Destination> = [
     new Destination('Rambouillet', '4'),
-    new Destination('Plaisir-Grignon', ''),
+    new Destination('Plaisir-Grignon', '5'),
     new Destination('Mantes-la-Jolie', '6'),
     new Destination('Dreux', '8')];
   hourTmp : String ="";
