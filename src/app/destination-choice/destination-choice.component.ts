@@ -11,17 +11,27 @@ import { Train } from './train.model';
 
 export class DestinationChoiceComponent implements OnInit {
   trainDep :Train = new Train();
-  destList: Array<Destination> = [
+  destList :Array<Destination> = [
     new Destination('Rambouillet', '4'),
     new Destination('Plaisir-Grignon', '5'),
     new Destination('Mantes-la-Jolie', '6'),
     new Destination('Dreux', '8')];
-  hourTmp : String ="";
+  hourTmp :String ="";
   visible :String = "hidden"
+
   constructor() { }
 
   ngOnInit() {
   }
+  
+  changeVisible(){
+    this.visible = "visible";
+  }
+
+  getVisible(){
+    return this.visible;
+  }
+
   
   setDestination(dest:String, terminus:String){
     this.trainDep.setDestination(dest);
@@ -31,14 +41,6 @@ export class DestinationChoiceComponent implements OnInit {
   setHourOfDep(){
     let time = this.hourTmp.split(":", 2);
     this.trainDep.setHour(Number(time[0]), Number(time[1]));
-  }
-
-  changeVisible(){
-    this.visible = "visible";
-  }
-
-  getVisible(){
-    return this.visible;
   }
 
   setNumTrain(){

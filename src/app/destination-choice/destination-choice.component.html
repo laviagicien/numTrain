@@ -1,20 +1,33 @@
 <!-- choose a destination section -->
-<div class="container">
-  <button *ngFor="let dest of destList"
-          class="btn btn-primary btn-lg btn-block"
-          (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}</button>
+<div class="container text-center">
+  <p>Veuillez choisir le terminus</p>
+  <div class="btn-group btn-group-toggle btn-group-vertical w-75 text-center" data-toggle="buttons">
+
+    <label *ngFor="let dest of destList; let i=index"
+           class="btn btn-primary btn-lg btn-block w-100"
+           style="margin-bottom: 1.5%">
+      <input type="radio"
+             name="options"
+             id="option{{i+1}}"
+             autocomplete="off"
+             (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}
+    </label>
+  </div>
+        
 </div>
 <hr>
 <!-- choose a time section, maybe in a different component later -->
 <div class="container text-center">
+  <p>Veuillez choisir l'heure de départ</p>
   <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourTmp" (change)="setHourOfDep()"><br>
 </div>
 <hr>
-<div class="container">
+<div class="container w-75">
   <button class="btn btn-success btn-lg btn-block"
           (click)="changeVisible()"
           (click)="setNumTrain()">Valider</button>
 </div>
-<div class="container text-center">
+<hr>
+<div class="container text-center w-75">
   <h1 [ngStyle]="{visibility : getVisible()}" >Train N° {{getNumTrain()}}</h1>
 </div>  
