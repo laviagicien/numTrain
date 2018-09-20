@@ -29,7 +29,7 @@ export class DestinationChoiceComponent implements OnInit {
     document.getElementById("option2").classList.remove("active");
     document.getElementById("option3").classList.remove("active");
     document.getElementById("option4").classList.remove("active");
-    document.getElementById('hourOfDep').value = "";
+    (<HTMLInputElement>document.getElementById('hourOfDep')).value = "";
     this.trainDep = new Train();
     this.visible= "hidden";
     this.hourTmp ="";
@@ -111,5 +111,6 @@ export class DestinationChoiceComponent implements OnInit {
   }
    
   getNumTrain(){
-  return this.trainDep.numTrain;
+    return this.trainDep.numTrain;
   }
+}
