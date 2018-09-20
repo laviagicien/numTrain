@@ -21,15 +21,25 @@
 <!-- choose a time section, maybe in a different component later -->
 <div class="container text-center">
   <p>Veuillez choisir l'heure de départ</p>
-  <input type="time" name="hourOfDep" class="form-control-lg" [(ngModel)]="hourTmp" (change)="setHourOfDep()"><br>
+  <input type="time" name="hourOfDep" id="hourOfDep" class="form-control-lg" value="" [(ngModel)]="hourTmp" (change)="setHourOfDep()"><br>
 </div>
 <hr>
-<div class="container w-75">
-  <button class="btn btn-success btn-lg btn-block"
-          (click)="changeVisible()"
-          (click)="setNumTrain()">Valider</button>
+<div class="row w-75 mx-auto">
+  <div class="col">
+    <button class="btn btn-danger btn-lg btn-block"
+            (click)="reset()">
+        <i class="material-icons">close</i>
+    </button>
+  </div> 
+  <div class="col">
+    <button class="btn btn-success btn-lg btn-block"
+            (click)="setNumTrain()">
+          <i class="material-icons">check</i>
+    </button>
+  </div> 
 </div>
 <hr>
 <div class="container text-center w-75">
-  <h1 [ngStyle]="{visibility : getVisible()}" >Train N° {{getNumTrain()}}</h1>
+    <h3 style="color: red" *ngIf="sthgMissing">Merci de renseigner une heure et un terminus</h3>
+    <h2 [ngStyle]="{visibility : getVisible()}" >Train N° {{getNumTrain()}}</h2>
 </div>  

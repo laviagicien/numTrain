@@ -17,10 +17,23 @@ export class DestinationChoiceComponent implements OnInit {
     new Destination('Dreux', '8')];
   hourTmp :String ="";
   visible :String = "hidden"
+  sthgMissing :Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  reset(){
+    document.getElementById("option1").classList.remove("active");
+    document.getElementById("option2").classList.remove("active");
+    document.getElementById("option3").classList.remove("active");
+    document.getElementById("option4").classList.remove("active");
+    document.getElementById('hourOfDep').value = "";
+    this.trainDep = new Train();
+    this.visible= "hidden";
+    this.hourTmp ="";
+    this.sthgMissing = false;
   }
   
   setActiveState(i){
@@ -30,19 +43,18 @@ export class DestinationChoiceComponent implements OnInit {
     document.getElementById("option4").classList.remove("active");
     let id = 'option'+ (i+1)
     let element = <HTMLElement>document.getElementById(id);
-    console.log (element.classList)
     element.classList.add("active");
   }
 
   changeVisible(){
     this.visible = "visible";
+    console.log("visible is changed");
   }
 
   getVisible(){
     return this.visible;
   }
 
-  
   setDestination(dest:String, terminus:String){
     this.trainDep.setDestination(dest);
     this.trainDep.setCodeTerminus(terminus);
@@ -56,43 +68,48 @@ export class DestinationChoiceComponent implements OnInit {
   setNumTrain(){
     let periode = this.trainDep.hour.hours < 12 ? "4" : "5";
     let codeHour ;
-
-    if(periode == "4"){
-      if (this.trainDep.hour.minutes < 15){
-        codeHour = this.trainDep.hour.hours * 8 + 1;
-      }
-      else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
-        codeHour = this.trainDep.hour.hours * 8 + 3;
-      }
-      else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
-        codeHour = this.trainDep.hour.hours * 8 + 5;
-      }
-      else if(this.trainDep.hour.minutes > 45){
-        codeHour = this.trainDep.hour.hours * 8 + 7;
-      }
+    if (this.trainDep.hour === {hours: null, minutes: null} || this.trainDep.destination===""){
+      this.sthgMissing = true;
     }
-    else if (periode == "5"){
-      if (this.trainDep.hour.minutes < 15){
-        codeHour = (this.trainDep.hour.hours - 12) * 8 + 1;
+    else{
+      if(periode == "4"){
+        if (this.trainDep.hour.minutes < 15){
+          codeHour = this.trainDep.hour.hours * 8 + 1;
+        }
+        else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
+          codeHour = this.trainDep.hour.hours * 8 + 3;
+        }
+        else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
+          codeHour = this.trainDep.hour.hours * 8 + 5;
+        }
+        else if(this.trainDep.hour.minutes > 45){
+          codeHour = this.trainDep.hour.hours * 8 + 7;
+        }
       }
-      else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
-        codeHour = (this.trainDep.hour.hours - 12) *8 + 3;
+      else if (periode == "5"){
+        if (this.trainDep.hour.minutes < 15){
+          codeHour = (this.trainDep.hour.hours - 12) * 8 + 1;
+        }
+        else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
+          codeHour = (this.trainDep.hour.hours - 12) *8 + 3;
+        }
+        else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
+          codeHour = (this.trainDep.hour.hours - 12) * 8 + 5;
+        }
+        else if(this.trainDep.hour.minutes > 45){
+          codeHour = (this.trainDep.hour.hours - 12) * 8  + 7;
+        }
       }
-      else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
-        codeHour = (this.trainDep.hour.hours - 12) * 8 + 5;
+      
+      if(codeHour.toString().length == 1){
+        codeHour = "0" + codeHour;
       }
-      else if(this.trainDep.hour.minutes > 45){
-        codeHour = (this.trainDep.hour.hours - 12) * 8  + 7;
-      }
+      this.trainDep.numTrain = "16" + periode + this.trainDep.codeTerminus + codeHour;
+      this.changeVisible();
+      this.sthgMissing = false;
     }
-    if(codeHour.toString().length == 1){
-      codeHour = "0" + codeHour;
-    }
-
-    this.trainDep.numTrain = "16" + periode + this.trainDep.codeTerminus + codeHour;
   }
-
+   
   getNumTrain(){
-    return this.trainDep.numTrain;
+  return this.trainDep.numTrain;
   }
-}
