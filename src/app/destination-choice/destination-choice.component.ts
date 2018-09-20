@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Time } from '@angular/common';
 import { Destination } from './destination.model';
 import { Train } from './train.model';
 
@@ -24,6 +23,17 @@ export class DestinationChoiceComponent implements OnInit {
   ngOnInit() {
   }
   
+  setActiveState(i){
+    document.getElementById("option1").classList.remove("active");
+    document.getElementById("option2").classList.remove("active");
+    document.getElementById("option3").classList.remove("active");
+    document.getElementById("option4").classList.remove("active");
+    let id = 'option'+ (i+1)
+    let element = <HTMLElement>document.getElementById(id);
+    console.log (element.classList)
+    element.classList.add("active");
+  }
+
   changeVisible(){
     this.visible = "visible";
   }

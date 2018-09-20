@@ -4,13 +4,15 @@
   <div class="btn-group btn-group-toggle btn-group-vertical w-75 text-center" data-toggle="buttons">
 
     <label *ngFor="let dest of destList; let i=index"
-           class="btn btn-primary btn-lg btn-block w-100"
-           style="margin-bottom: 1.5%">
+           class="btn btn-outline-primary btn-lg btn-block w-100"
+           style="margin-bottom: 1.5%"
+           id="option{{i+1}}">
       <input type="radio"
              name="options"
              id="option{{i+1}}"
              autocomplete="off"
-             (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}
+             (click)="setDestination(dest.terminus, dest.id)"
+             (click)="setActiveState(i)">{{dest.terminus}}
     </label>
   </div>
         
