@@ -1,0 +1,4 @@
+<div class="container text-center w-75">
+  <h3 style="color: red" *ngIf="sthgMissing">Merci de renseigner une heure et un terminus</h3>
+  <h2 [ngStyle]="{visibility : getVisible()}" ><ng-content></ng-content></h2>
+</div>  

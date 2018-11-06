@@ -5,12 +5,18 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DestinationChoiceComponent } from './destination-choice/destination-choice.component';
+import { TimeChoiceComponent } from './time-choice/time-choice.component';
+import { ButtonPanelComponent } from './button-panel/button-panel.component';
+import { ShowTrainComponent } from './show-train/show-train.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DestinationChoiceComponent
+    DestinationChoiceComponent,
+    TimeChoiceComponent,
+    ButtonPanelComponent,
+    ShowTrainComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Destination } from './destination.model';
-import { Train } from './train.model';
+import { Train } from '../train.model';
 
 @Component({
   selector: 'app-destination-choice',
@@ -9,33 +9,19 @@ import { Train } from './train.model';
 })
 
 export class DestinationChoiceComponent implements OnInit {
-  trainDep :Train = new Train();
   destList :Array<Destination> = [
     new Destination('Rambouillet', '4'),
     new Destination('Plaisir-Grignon', '5'),
     new Destination('Mantes-la-Jolie', '6'),
     new Destination('Dreux', '8')];
-  hourTmp :String ="";
-  visible :String = "hidden"
-  sthgMissing :Boolean = false;
+
+  @Output() terminus = new EventEmitter<{term :String, code :String}>();
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  reset(){
-    document.getElementById("option1").classList.remove("active");
-    document.getElementById("option2").classList.remove("active");
-    document.getElementById("option3").classList.remove("active");
-    document.getElementById("option4").classList.remove("active");
-    (<HTMLInputElement>document.getElementById('hourOfDep')).value = "";
-    this.trainDep = new Train();
-    this.visible= "hidden";
-    this.hourTmp ="";
-    this.sthgMissing = false;
-  }
-  
+ 
   setActiveState(i){
     document.getElementById("option1").classList.remove("active");
     document.getElementById("option2").classList.remove("active");
@@ -46,71 +32,10 @@ export class DestinationChoiceComponent implements OnInit {
     element.classList.add("active");
   }
 
-  changeVisible(){
-    this.visible = "visible";
-    console.log("visible is changed");
+  setDestination(dest:String, codeNb:String){
+    this.terminus.emit({term : dest, code : codeNb})
   }
 
-  getVisible(){
-    return this.visible;
-  }
+  
 
-  setDestination(dest:String, terminus:String){
-    this.trainDep.setDestination(dest);
-    this.trainDep.setCodeTerminus(terminus);
-  }
-
-  setHourOfDep(){
-    let time = this.hourTmp.split(":", 2);
-    this.trainDep.setHour(Number(time[0]), Number(time[1]));
-  }
-
-  setNumTrain(){
-    let periode = this.trainDep.hour.hours < 12 ? "4" : "5";
-    let codeHour ;
-    if (this.trainDep.hour === {hours: null, minutes: null} || this.trainDep.destination===""){
-      this.sthgMissing = true;
-    }
-    else{
-      if(periode == "4"){
-        if (this.trainDep.hour.minutes < 15){
-          codeHour = this.trainDep.hour.hours * 8 + 1;
-        }
-        else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
-          codeHour = this.trainDep.hour.hours * 8 + 3;
-        }
-        else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
-          codeHour = this.trainDep.hour.hours * 8 + 5;
-        }
-        else if(this.trainDep.hour.minutes > 45){
-          codeHour = this.trainDep.hour.hours * 8 + 7;
-        }
-      }
-      else if (periode == "5"){
-        if (this.trainDep.hour.minutes < 15){
-          codeHour = (this.trainDep.hour.hours - 12) * 8 + 1;
-        }
-        else if(this.trainDep.hour.minutes > 15 && this.trainDep.hour.minutes < 30){
-          codeHour = (this.trainDep.hour.hours - 12) *8 + 3;
-        }
-        else if(this.trainDep.hour.minutes > 30 && this.trainDep.hour.minutes < 45){
-          codeHour = (this.trainDep.hour.hours - 12) * 8 + 5;
-        }
-        else if(this.trainDep.hour.minutes > 45){
-          codeHour = (this.trainDep.hour.hours - 12) * 8  + 7;
-        }
-      }
-      
-      if(codeHour.toString().length == 1){
-        codeHour = "0" + codeHour;
-      }
-      this.trainDep.numTrain = "16" + periode + this.trainDep.codeTerminus + codeHour;
-      this.changeVisible();
-      this.sthgMissing = false;
-    }
-  }
-   
-  getNumTrain(){
-    return this.trainDep.numTrain;
-  }
 }
