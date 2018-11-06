@@ -34,6 +34,7 @@ export class ButtonPanelComponent implements OnInit {
       codeHour = (this.train.hour.hours * 4 + Math.floor(this.train.hour.minutes/15) + 1) * 2 - 1
       console.log(codeHour);
     }
+    
     if(periode == '5'){
       codeHour = ((this.train.hour.hours - 12) * 4 + Math.floor(this.train.hour.minutes/15) + 1) * 2 - 1
     }
