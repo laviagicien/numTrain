@@ -16,7 +16,7 @@ import { ShowTrainComponent } from './show-train/show-train.component';
     DestinationChoiceComponent,
     TimeChoiceComponent,
     ButtonPanelComponent,
-    ShowTrainComponent
+    ShowTrainComponent,
   ],
   imports: [
     BrowserModule,
