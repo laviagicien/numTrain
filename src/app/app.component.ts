@@ -1,37 +1,31 @@
 import { Component } from '@angular/core';
 import { Train } from './train.model';
 import { Time } from '@angular/common';
+import { TrainService } from './train.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[TrainService]
 })
 export class AppComponent {
-  train = new Train
+
   sthgBroken :boolean = false;
-  trainNumber :String;
   visibility :String = 'hidden';
-  
-  setTrainDestination(trainDest: {term :String, code :String}){
-    this.train.setDestination(trainDest.term);
-    this.train.setCodeTerminus(trainDest.code);
+
+  constructor(private trainService :TrainService) {}
+
+  sthgWentWrong(broke){
+    this.sthgBroken = broke;
   }
 
-  setTrainDepartureTime(trainDepTime :Time){
-    this.train.setHour(trainDepTime.hours, trainDepTime.minutes);
+  getTrainDp(){
+    return this.trainService.train.numTrain
   }
 
-  sthgWentWrong(foo){
-    this.sthgBroken = foo;
-  }
-
-  trainDp(bar){
-    this.trainNumber = bar;
-  }
-
-  chgVisible(vis){
-    this.visibility = vis; 
+  chgVisible(visible){
+    this.visibility = visible; 
 
   }
 }

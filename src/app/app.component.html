@@ -1,15 +1,13 @@
 <div class="row h-100 w-100 mx-auto">
     <div class="w-75 mx-auto" style="margin-top:1%">
-        <app-destination-choice (terminus) = "setTrainDestination($event)"></app-destination-choice>
+        <app-destination-choice></app-destination-choice>
         <hr>
-        <app-time-choice (hourOfDep) = "setTrainDepartureTime($event)"></app-time-choice>
+        <app-time-choice></app-time-choice>
         <hr>
-        <app-button-panel [tchoutchou] = "train"
-                          (sthgMissing) = "sthgWentWrong($event)"
-                          (trainNb) = "trainDp($event)"
+        <app-button-panel (sthgMissing) = "sthgWentWrong($event)"
                           (changeVisible) = "chgVisible($event)"></app-button-panel>
         <hr>
         <app-show-train [sthgMissing] = "sthgBroken"
-                        [visible] = "visibility">{{trainNumber}}</app-show-train>
+                        [visible] = "visibility">{{getTrainDp()}}</app-show-train>
     </div>
 </div>

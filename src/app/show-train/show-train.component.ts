@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./show-train.component.css']
 })
 export class ShowTrainComponent implements OnInit {
+
   @Input() sthgMissing :Boolean;
   @Input() visible :String; 
 
@@ -16,9 +17,5 @@ export class ShowTrainComponent implements OnInit {
 
   getVisible(){
     return this.visible;
-  }
-
-  getNumTrain(){
-    return '';
   }
 }

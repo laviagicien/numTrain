@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Destination } from './destination.model';
-import { Train } from '../train.model';
+import { TrainService } from '../train.service';
 
 @Component({
   selector: 'app-destination-choice',
@@ -9,21 +9,21 @@ import { Train } from '../train.model';
 })
 
 export class DestinationChoiceComponent implements OnInit {
+  
   destList :Array<Destination> = [
     new Destination('Rambouillet', '4'),
     new Destination('Plaisir-Grignon', '5'),
     new Destination('Mantes-la-Jolie', '6'),
     new Destination('Dreux', '8')];
 
-  @Output() terminus = new EventEmitter<{term :String, code :String}>();
-
-  constructor() { }
+  constructor(private trainService :TrainService) { }
 
   ngOnInit() {
   }
   
   setDestination(dest:String, codeNb:String){
-    this.terminus.emit({term : dest, code : codeNb})
+    this.trainService.train.setDestination(dest);
+    this.trainService.train.setCodeTerminus(codeNb);
   }
 
   
