@@ -14,7 +14,6 @@ export class ActiveStateDirective {
     for(let s = 0 ; s < allSiblings.length ; s++){
       allSiblings.item(s).classList.remove('active');
     }
-    console.log(allSiblings);
     this.renderer.addClass(elem, 'active');
   }
 }
