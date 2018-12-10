@@ -12,7 +12,9 @@ export class ActiveStateDirective {
     let sibling :Element= elem.parentNode;
     let allSiblings= sibling.children;
     for(let s = 0 ; s < allSiblings.length ; s++){
-      allSiblings.item(s).classList.remove('active');
+      if(allSiblings.item(s).classList.contains('active')){
+        allSiblings.item(s).classList.remove('active');
+      }
     }
     this.renderer.addClass(elem, 'active');
   }
