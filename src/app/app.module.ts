@@ -8,6 +8,7 @@ import { DestinationChoiceComponent } from './destination-choice/destination-cho
 import { TimeChoiceComponent } from './time-choice/time-choice.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { ShowTrainComponent } from './show-train/show-train.component';
+import { ActiveStateDirective } from './active-state.directive';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ShowTrainComponent } from './show-train/show-train.component';
     TimeChoiceComponent,
     ButtonPanelComponent,
     ShowTrainComponent,
+    ActiveStateDirective,
   ],
   imports: [
     BrowserModule,

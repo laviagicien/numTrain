@@ -6,7 +6,8 @@
     <label *ngFor="let dest of destList; let i=index"
            class="btn btn-outline-primary btn-lg btn-block w-100"
            style="margin-bottom: 1.5%"
-           id="option{{i+1}}">
+           id="option{{i+1}}"
+           appActiveState>
       <input type="radio"
              name="options"
              id="option{{i+1}}"

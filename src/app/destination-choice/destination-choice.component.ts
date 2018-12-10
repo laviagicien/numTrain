@@ -23,7 +23,7 @@ export class DestinationChoiceComponent implements OnInit {
   
   setDestination(dest:String, codeNb:String){
     this.trainService.train.setDestination(dest);
-    this.trainService.train.setCodeTerminus(codeNb);
+    this.trainService.train.setCodeTerminus(codeNb);  
   }
 
   
