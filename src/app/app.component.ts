@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Train } from './train.model';
-import { Time } from '@angular/common';
 import { TrainService } from './train.service';
 
 @Component({
@@ -21,7 +19,7 @@ export class AppComponent {
   }
 
   getTrainDp(){
-    return this.trainService.train.numTrain
+    return this.trainService.train.getNumTrain();
   }
 
   chgVisible(visible){

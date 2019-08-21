@@ -24,6 +24,16 @@ export class DestinationChoiceComponent implements OnInit {
   setDestination(dest:String, codeNb:String){
     this.trainService.train.setDestination(dest);
     this.trainService.train.setCodeTerminus(codeNb);
+    for(let i: number = 1; i < 5; i++){
+      let id: string = "option";
+      id = id + i.toString();      
+      if ((<HTMLInputElement>document.getElementById(id)).checked == true){
+        document.getElementById(id).parentElement.classList.add('active');
+      }
+      else {
+        document.getElementById(id).parentElement.classList.remove("active");
+      }
+    }
   }
 
   

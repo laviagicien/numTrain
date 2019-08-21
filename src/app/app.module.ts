@@ -10,6 +10,7 @@ import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { ShowTrainComponent } from './show-train/show-train.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
