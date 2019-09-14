@@ -9,8 +9,7 @@ import { TrainService } from '../train.service';
 })
 
 export class DestinationChoiceComponent implements OnInit {
-  
-  destList :Array<Destination> = [
+  destList: Array<Destination> = [
     new Destination('Rambouillet', '4'),
     new Destination('Plaisir-Grignon', '5'),
     new Destination('Mantes-la-Jolie', '6'),
@@ -20,12 +19,12 @@ export class DestinationChoiceComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   setDestination(dest: String, codeNb:String){
     this.trainService.train.setDestination(dest);
     this.trainService.train.setCodeTerminus(codeNb);
-    for(let i: Number = 1; i < 5; i++){
-      let id: String = 'option';
+    for(let i: number = 1; i < 5; i++){
+      let id: string = 'option';
       id = id + i.toString();
       if ((<HTMLInputElement>document.getElementById(id)).checked === true){
         document.getElementById(id).parentElement.classList.add('active');
