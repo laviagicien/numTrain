@@ -21,25 +21,17 @@ export class DestinationChoiceComponent implements OnInit {
   ngOnInit() {
   }
   
-  setDestination(dest:String, codeNb:String){
+  setDestination(dest: String, codeNb:String){
     this.trainService.train.setDestination(dest);
-<<<<<<< HEAD
-    this.trainService.train.setCodeTerminus(codeNb);  
-=======
     this.trainService.train.setCodeTerminus(codeNb);
-    for(let i: number = 1; i < 5; i++){
-      let id: string = "option";
-      id = id + i.toString();      
-      if ((<HTMLInputElement>document.getElementById(id)).checked == true){
+    for(let i: Number = 1; i < 5; i++){
+      let id: String = 'option';
+      id = id + i.toString();
+      if ((<HTMLInputElement>document.getElementById(id)).checked === true){
         document.getElementById(id).parentElement.classList.add('active');
-      }
-      else {
-        document.getElementById(id).parentElement.classList.remove("active");
+      } else {
+        document.getElementById(id).parentElement.classList.remove('active');
       }
     }
->>>>>>> 5123d3525ef35c7cf55a4222a0a60b30037ef4fb
   }
-
-  
-
 }
