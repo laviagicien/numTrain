@@ -9,6 +9,7 @@ import { TimeChoiceComponent } from './time-choice/time-choice.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { ShowTrainComponent } from './show-train/show-train.component';
 import { ActiveStateDirective } from './active-state.directive';
+import { NextDepartureComponent } from './next-departure/next-departure.component';
 
 
 
@@ -20,6 +21,7 @@ import { ActiveStateDirective } from './active-state.directive';
     ButtonPanelComponent,
     ShowTrainComponent,
     ActiveStateDirective,
+    NextDepartureComponent,
   ],
   imports: [
     BrowserModule,
