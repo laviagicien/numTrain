@@ -10,6 +10,7 @@ import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { ShowTrainComponent } from './show-train/show-train.component';
 import { ActiveStateDirective } from './active-state.directive';
 import { NextDepartureComponent } from './next-departure/next-departure.component';
+import { ListOfDepartureComponent } from './next-departure/list-of-departure/list-of-departure.component';
 
 
 
@@ -22,6 +23,7 @@ import { NextDepartureComponent } from './next-departure/next-departure.componen
     ShowTrainComponent,
     ActiveStateDirective,
     NextDepartureComponent,
+    ListOfDepartureComponent,
   ],
   imports: [
     BrowserModule,
