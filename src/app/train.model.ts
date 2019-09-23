@@ -6,9 +6,9 @@ export class Train{
     public hour: Time;
     public numTrain: String;
 
-    constructor(){
-        this.destination = "";
-        this.codeTerminus = "";
+    constructor(d: String, ct: String) {
+        this.destination = d;
+        this.codeTerminus = ct;
         this.hour = {
             hours : null,
             minutes : null
