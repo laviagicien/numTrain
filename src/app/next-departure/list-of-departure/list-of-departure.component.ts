@@ -11,18 +11,13 @@ export class ListOfDepartureComponent implements OnInit {
   hours: number = this.now.getHours();
   minutes: number = this.now.getMinutes();
   listOfNext: Array<Train> = [
-    new Train('Dreux', '8')
+    new Train('Dreux', '8'),
+    new Train('Plaisir-Grignon', '5')
   ];
-  time: String;
   constructor() { }
 
   ngOnInit() {
     this.nextMinutesDep();
-    if (this.time.length === 4) {
-      this.time = '0' + this.time;
-    }
-    console.log(this.listOfNext);
-    console.log(this.listOfNext[0].getHour());
   }
   
   nextMinutesDep() {
@@ -100,11 +95,138 @@ export class ListOfDepartureComponent implements OnInit {
           this.listOfNext.splice(index, 1, element);
           return;
         }
-        return;
+      } else if (element.codeTerminus === '5') {
+        if (this.hours <= 6 || this.hours === 23) {
+          if (this.minutes < 5) {
+            element.setHour(this.hours, 5)
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            if (this.hours === 23) {
+              element.setHour(0, 5);
+              const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+              this.listOfNext.splice(index, 1, element);
+            } else if (this.hours < 6) {
+              element.setHour(6, 5);
+              const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+              this.listOfNext.splice(index, 1, element);
+            } else {
+              element.setHour(this.hours + 1, 9);
+              const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+              this.listOfNext.splice(index, 1, element);
+            }
+          }
+          return;
+        }
+        if (this.hours === 7) {
+          if (this.minutes < 9) {
+            element.setHour(7, 9);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(8, 9);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours === 8) {
+          if (this.minutes < 9) {
+            element.setHour(8, 9);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(9, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours >= 9 && this.hours < 15) {
+          if (this.minutes < 20) {
+            element.setHour(this.hours, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(this.hours + 1 , 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours === 15) {
+          if (this.minutes < 20) {
+            element.setHour(this.hours, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(this.hours + 1 , 24);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours >= 16 && this.hours < 19) {
+          if (this.minutes < 24) {
+            element.setHour(this.hours, 24);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else if (this.minutes >= 24 && this.minutes < 54) {
+            element.setHour(this.hours, 54);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(this.hours + 1, 24);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours === 19) {
+          if (this.minutes < 24) {
+            element.setHour(this.hours, 24);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else if (this.minutes >= 24 && this.minutes < 54) {
+            element.setHour(this.hours, 54);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(this.hours + 1, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours >= 20 && this.hours < 22) {
+          if (this.minutes < 20) {
+            element.setHour(this.hours, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(this.hours + 1 , 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
+        if (this.hours === 22) {
+          if (this.minutes < 20) {
+            element.setHour(this.hours, 20);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          } else {
+            element.setHour(23 , 5);
+            const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
+            this.listOfNext.splice(index, 1, element);
+          }
+          return;
+        }
       }
     });
-    this.time = this.listOfNext[0].getHour();
-    this.listOfNext[0].setNumTrain()
+    for (let i = 0; i < this.listOfNext.length; i++) {
+      this.listOfNext[i].setNumTrain();
+    }
   }
 
 }

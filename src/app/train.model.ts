@@ -30,7 +30,9 @@ export class Train{
     }
 
     getHour(){
-        return this.hour.hours + ":" + this.hour.minutes;
+        let hh: String = this.hour.hours.toString().length === 2 ? this.hour.hours.toString()  : '0' + this.hour.hours.toString();
+        let mm: String = this.hour.minutes.toString().length === 2 ? this.hour.minutes.toString() : '0' + this.hour.minutes.toString();
+        return hh + ':' + mm;
     }
 
     setCodeTerminus (terminus:String){
