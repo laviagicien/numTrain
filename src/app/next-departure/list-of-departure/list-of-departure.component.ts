@@ -19,7 +19,7 @@ export class ListOfDepartureComponent implements OnInit {
   ngOnInit() {
     this.nextMinutesDep();
   }
-  
+
   nextMinutesDep() {
     this.listOfNext.forEach(element => {
       if (element.codeTerminus === '8') {
@@ -41,6 +41,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 15) {
           if (this.minutes < 58) {
             element.setHour(15, 58);
@@ -53,6 +54,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours >= 16 && this.hours <= 20) {
           if (this.hours === 17) {
             if (this.minutes < 28) {
@@ -63,7 +65,7 @@ export class ListOfDepartureComponent implements OnInit {
               element.setHour(this.hours, 43);
               const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
               this.listOfNext.splice(index, 1, element);
-            } else if (this.minutes >= 43 && this.minutes <58) {
+            } else if (this.minutes >= 43 && this.minutes < 58) {
               element.setHour(this.hours, 58);
               const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
               this.listOfNext.splice(index, 1, element);
@@ -77,7 +79,7 @@ export class ListOfDepartureComponent implements OnInit {
               element.setHour(this.hours, 28);
               const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
               this.listOfNext.splice(index, 1, element);
-            } else if (this.minutes >= 28 && this.minutes <58) {
+            } else if (this.minutes >= 28 && this.minutes < 58) {
               element.setHour(this.hours, 58);
               const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
               this.listOfNext.splice(index, 1, element);
@@ -89,6 +91,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 0 || (this.hours >= 23 && this.minutes >= 58)) {
           element.setHour(6, 58);
           const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
@@ -98,7 +101,7 @@ export class ListOfDepartureComponent implements OnInit {
       } else if (element.codeTerminus === '5') {
         if (this.hours <= 6 || this.hours === 23) {
           if (this.minutes < 5) {
-            element.setHour(this.hours, 5)
+            element.setHour(this.hours, 5);
             const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
             this.listOfNext.splice(index, 1, element);
           } else {
@@ -118,6 +121,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 7) {
           if (this.minutes < 9) {
             element.setHour(7, 9);
@@ -130,6 +134,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 8) {
           if (this.minutes < 9) {
             element.setHour(8, 9);
@@ -142,6 +147,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours >= 9 && this.hours < 15) {
           if (this.minutes < 20) {
             element.setHour(this.hours, 20);
@@ -154,6 +160,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 15) {
           if (this.minutes < 20) {
             element.setHour(this.hours, 20);
@@ -166,6 +173,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours >= 16 && this.hours < 19) {
           if (this.minutes < 24) {
             element.setHour(this.hours, 24);
@@ -182,6 +190,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 19) {
           if (this.minutes < 24) {
             element.setHour(this.hours, 24);
@@ -198,6 +207,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours >= 20 && this.hours < 22) {
           if (this.minutes < 20) {
             element.setHour(this.hours, 20);
@@ -210,6 +220,7 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+
         if (this.hours === 22) {
           if (this.minutes < 20) {
             element.setHour(this.hours, 20);
@@ -222,6 +233,8 @@ export class ListOfDepartureComponent implements OnInit {
           }
           return;
         }
+      } else if (element.codeTerminus === '6') {
+
       }
     });
     for (let i = 0; i < this.listOfNext.length; i++) {
