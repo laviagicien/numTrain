@@ -33,4 +33,8 @@ export class DestinationChoiceComponent implements OnInit {
       }
     }
   }
+
+  openModal () {
+    document.getElementById('next-dep').style.display = 'block';
+  }
 }

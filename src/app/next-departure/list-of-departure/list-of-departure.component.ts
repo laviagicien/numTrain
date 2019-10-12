@@ -282,7 +282,7 @@ export class ListOfDepartureComponent implements OnInit {
           return;
         }
 
-        if (this.hours <= 9 && this.hours < 15) {
+        if (this.hours >= 9 && this.hours < 15) {
           if (this.minutes < 50) {
             element.setHour(this.hours , 50);
             const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
@@ -308,12 +308,12 @@ export class ListOfDepartureComponent implements OnInit {
           return;
         }
 
-        if (this.hours <= 16 && this.hours < 19) {
+        if (this.hours >= 16 && this.hours < 19) {
           if (this.minutes < 9) {
             element.setHour(this.hours , 9);
             const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
             this.listOfNext.splice(index, 1, element);
-          } else if (this.minutes <= 9 && this.minutes < 39) {
+          } else if (this.minutes >= 9 && this.minutes < 39) {
             element.setHour(this.hours , 39);
             const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
             this.listOfNext.splice(index, 1, element);

@@ -1,17 +1,32 @@
 <!-- choose a destination section -->
 <div class="container text-center">
-  <p>Veuillez choisir le terminus</p>
-  <div class="btn-group btn-group-vertical w-75 text-center btn-group-toggle" data-toggle="buttons">
+  <div class="row">
+    <div class="col" style="padding-left: 15%; padding-right: 15%">
+        Veuillez choisir le terminus
+        <button style="all: unset; vertical-align: middle; float: right"
+                (click)="openModal()">
+          <span >
+            <i class="material-icons">train</i>
+          </span>
+        </button>
+    </div>     
+  </div>
+  <div class="row">
+    <div class="col">
+        <div class="btn-group btn-group-vertical w-75 text-center btn-group-toggle" data-toggle="buttons">
 
-    <label *ngFor="let dest of destList; let i=index"
-           class="btn btn-outline-primary btn-lg w-100"
-           style="margin-bottom: 1.5%"
-           for="option{{i+1}}">
-      <input type="radio"
-             name="terminus"
-             id="option{{i+1}}"
-             autocomplete="off"
-             (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}
-    </label>
+          <label *ngFor="let dest of destList; let i=index"
+                 class="btn btn-outline-primary btn-lg w-100"
+                 style="margin-bottom: 1.5%"
+                 for="option{{i+1}}">
+            <input type="radio"
+                   name="terminus"
+                   id="option{{i+1}}"
+                   autocomplete="off"
+                   (click)="setDestination(dest.terminus, dest.id)">{{dest.terminus}}
+            </label>
+        </div>
+    </div>
+      
   </div>
 </div>
