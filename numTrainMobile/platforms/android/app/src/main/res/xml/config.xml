@@ -4,13 +4,14 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>HelloCordova</name>
+    <name>PMP Train</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A sample Apache Cordova application that shows the train departure number in PMP.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        Laviagicien
     </author>
+    <icon height="96" src="res/icon/android/PMP.png" width="96" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
