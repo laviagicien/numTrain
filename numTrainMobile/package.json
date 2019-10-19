@@ -1,6 +1,6 @@
 {
   "name": "PMP Train",
-  "displayName": "PMP Train",
+  "displayName": "PMP Train V2",
   "version": "2.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",

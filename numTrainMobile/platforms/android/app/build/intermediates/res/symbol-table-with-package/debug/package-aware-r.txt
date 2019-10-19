@@ -1,4 +1,4 @@
-io.cordova.hellocordova
+io.cordova.pmpTrain
 drawable screen
 mipmap ic_launcher
 string activity_name

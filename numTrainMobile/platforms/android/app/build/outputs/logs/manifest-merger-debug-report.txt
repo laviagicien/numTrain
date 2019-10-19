@@ -9,7 +9,7 @@ INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/ap
 INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:1-13:12
 INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:1-13:12
 	package
-		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:102-135
+		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:102-131
 		INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -19,7 +19,7 @@ INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/ap
 	android:hardwareAccelerated
 		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:136-194
+		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:132-190
 	android:versionCode
 		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
 		INJECTED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml
@@ -52,7 +52,7 @@ ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/s
 		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
 	android:icon
 		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:5:53-87
-activity#io.cordova.hellocordova.MainActivity
+activity#io.cordova.pmpTrain.MainActivity
 ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
 	android:label
 		ADDED from /home/laviagicien/www/numTrain/numTrainMobile/platforms/android/app/src/main/AndroidManifest.xml:6:136-173
