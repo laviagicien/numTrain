@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Train } from '../../train.model';
+import Dreux from '../json-data/dreux.json';
 
 @Component({
   selector: 'app-list-of-departure',
@@ -20,6 +21,11 @@ export class ListOfDepartureComponent implements OnInit {
 
   ngOnInit() {
     this.nextMinutesDep();
+    this.nextMinutesDepNew();
+  }
+
+  nextMinutesDepNew () {
+    console.log(Dreux);
   }
 
   nextMinutesDep() {
