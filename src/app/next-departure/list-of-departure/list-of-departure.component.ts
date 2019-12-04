@@ -9,6 +9,9 @@ import Dreux from '../json-data/dreux.json';
 })
 export class ListOfDepartureComponent implements OnInit {
   now: Date = new Date();
+  year = this.now.getFullYear();
+  month = this.now.getMonth();
+  UTCDate = this.now.getUTCDate();
   hours: number = this.now.getHours();
   minutes: number = this.now.getMinutes();
   listOfNext: Array<Train> = [
@@ -25,7 +28,28 @@ export class ListOfDepartureComponent implements OnInit {
   }
 
   nextMinutesDepNew () {
-    console.log(Dreux);
+    console.log(this.getApprArray(Dreux));
+  }
+
+  closestTime (myArray: String[]) {
+
+  }
+
+  getApprArray (jsonArray: {monFrService: String[],
+                            satService: String[],
+                            sunService: String[]}): String[] {
+    const nDay = this.now.getDay();
+    let result: String[] = [];
+
+    if (nDay === 6) {
+      result = jsonArray.satService;
+    } else if (nDay === 0) {
+      result = jsonArray.sunService;
+    } else {
+      result = jsonArray.monFrService;
+    }
+
+    return result;
   }
 
   nextMinutesDep() {

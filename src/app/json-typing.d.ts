@@ -1,5 +1,4 @@
 declare module "*.json" {
-    const value: {weekService: String[],
-                  dayOffService: String[]};
+    const value: any;
     export default value;
 }
