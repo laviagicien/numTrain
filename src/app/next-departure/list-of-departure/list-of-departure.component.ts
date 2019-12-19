@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Train } from '../../train.model';
 import Dreux from '../json-data/dreux.json';
+import PlGr from '../json-data/plaisir-grignon.json';
 
 @Component({
   selector: 'app-list-of-departure',
@@ -23,18 +24,42 @@ export class ListOfDepartureComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.nextMinutesDep();
+    console.log('Date Actuel : ' + this.now);
     this.nextMinutesDepNew();
+    // this.nextMinutesDep();
   }
 
   nextMinutesDepNew () {
-    console.log(this.getApprArray(Dreux));
+    this.listOfNext.forEach(element => {
+      if (element.codeTerminus === '8') {
+        const closestDep = this.getClosestDep(this.getApprArray(Dreux));
+        const h = closestDep.getHours();
+        const m = closestDep.getMinutes();
+        element.setHour(h, m);
+        element.setNumTrain();
+      } else if (element.codeTerminus ==='5') {
+        const closestDep = this.getClosestDep(this.getApprArray(PlGr));
+        const h = closestDep.getHours();
+        const m = closestDep.getMinutes();
+        element.setHour(h, m);
+        element.setNumTrain();
+      }
+    });
   }
 
-  closestTime (myArray: String[]) {
-
+  getClosestDep (schDep: String[]): Date {
+    let possList: Date[] = [];
+    schDep.forEach(element => {
+      const tmp = element.split(':');
+      const h = parseInt(tmp[0], 10);
+      const m = parseInt(tmp[1], 10);
+      possList.push(new Date(this.year, this.month, this.UTCDate, h, m));
+    });
+    possList = possList.filter(element => element > this.now);
+    possList = possList.sort();
+    return possList[0];
   }
-
+  
   getApprArray (jsonArray: {monFrService: String[],
                             satService: String[],
                             sunService: String[]}): String[] {
@@ -55,7 +80,7 @@ export class ListOfDepartureComponent implements OnInit {
   nextMinutesDep() {
     this.listOfNext.forEach(element => {
       if (element.codeTerminus === '8') {
-        if ((this.hours <= 14 && this.hours >= 6) || (this.hours >= 21 && this.hours <= 23)) {
+        /* if ((this.hours <= 14 && this.hours >= 6) || (this.hours >= 21 && this.hours <= 23)) {
           if (this.minutes < 58) {
             element.setHour(this.hours, 58);
             const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
@@ -129,9 +154,9 @@ export class ListOfDepartureComponent implements OnInit {
           const index = this.listOfNext.findIndex(item => item.getDestination() === element.getDestination());
           this.listOfNext.splice(index, 1, element);
           return;
-        }
+        } */
       } else if (element.codeTerminus === '5') {
-        if (this.hours <= 6 || this.hours === 23) {
+        /* if (this.hours <= 6 || this.hours === 23) {
           if (this.minutes < 5) {
             element.setHour(this.hours, 5);
             const index = this.listOfNext.findIndex( item => item.getDestination() === element.getDestination());
@@ -264,7 +289,7 @@ export class ListOfDepartureComponent implements OnInit {
             this.listOfNext.splice(index, 1, element);
           }
           return;
-        }
+        } */
       } else if (element.codeTerminus === '6') {
         if (this.hours < 5 || this.hours >= 22) {
           element.setHour(5 , 35);

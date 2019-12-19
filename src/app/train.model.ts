@@ -30,9 +30,13 @@ export class Train {
     }
 
     getHour() {
-        const hh: String = this.hour.hours.toString().length === 2 ? this.hour.hours.toString()  : '0' + this.hour.hours.toString();
-        const mm: String = this.hour.minutes.toString().length === 2 ? this.hour.minutes.toString() : '0' + this.hour.minutes.toString();
-        return hh + ':' + mm;
+        if (this.hour.hours !== null || this.hour.minutes !== null) {
+            const hh: String = this.hour.hours.toString().length === 2 ? this.hour.hours.toString()  : '0' + this.hour.hours.toString();
+            const mm: String = this.hour.minutes.toString().length === 2 ? this.hour.minutes.toString() : '0' + this.hour.minutes.toString();
+            return hh + ':' + mm;
+        } else {
+            return 'time not set';
+        }
     }
 
     setCodeTerminus (terminus: String) {
