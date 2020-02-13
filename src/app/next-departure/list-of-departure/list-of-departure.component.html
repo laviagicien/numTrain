@@ -1,9 +1,9 @@
 <div class="card" *ngFor = "let dep of listOfNext">
   <div class="card-header">
-    <span style="display: block; float: left">{{dep.getDestination()}}</span>
-    <span style="display: block; float: right">{{dep.getHour()}}</span>
+    <span style="display: block; float: left">{{dep.t.getDestination()}}</span>
+    <span style="display: block; float: right">{{dep.t.getHour()}}</span>
   </div>
   <div class="card-body" style="text-align: center">
-    <h4>{{dep.getNumTrain()}}</h4>
+    <h4>{{dep.t.getNumTrain()}}</h4>
   </div>
 </div>
